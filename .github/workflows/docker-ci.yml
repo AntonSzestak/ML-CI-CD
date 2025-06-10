@@ -1,0 +1,19 @@
+name: Docker Build and Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build -t test-image .
+
+      - name: Run tests inside container
+        run: docker run test-image
