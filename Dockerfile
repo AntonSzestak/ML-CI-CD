@@ -7,7 +7,7 @@ COPY . .
 # domyślnie uruchomimy testy
 CMD ["pytest"]
 
-# Stage 2: finalny obraz do uruchomienia serwera (jeśli potrzebne)
+# Stage 2: finalny obraz do uruchomienia serwera
 FROM python:3.10-slim AS runtime
 WORKDIR /app
 COPY requirements.txt .
